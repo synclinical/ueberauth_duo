@@ -34,7 +34,6 @@ defmodule Ueberauth.Strategy.Duo.OAuth do
   def get_user_info(headers \\ [], opts \\ []) do
     config = Application.get_env(:ueberauth, __MODULE__)
     userinfo_url = Keyword.get(opts, :userinfo_url) || Keyword.get(config, :userinfo_url, "/userinfo")
-
     client(opts)
     |> Client.get(userinfo_url, headers, opts)
     |> case do

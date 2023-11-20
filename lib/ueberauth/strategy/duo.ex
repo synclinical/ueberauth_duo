@@ -29,7 +29,7 @@ defmodule Ueberauth.Strategy.Duo do
         set_errors!(conn, [error(err, desc)])
 
       _token ->
-        fetch_user(conn, client)
+        fetch_user(conn, token)
     end
   rescue
     err in [Error] ->
